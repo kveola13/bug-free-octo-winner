@@ -1,5 +1,5 @@
 function sleepIn(weekday, vacation){
-	return weekday
+	return weekday == vacation
 }
 
 console.log(sleepIn(true, false))
