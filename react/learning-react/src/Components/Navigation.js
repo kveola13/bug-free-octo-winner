@@ -6,6 +6,14 @@ function Navigation () {
 
     const [showMenu, setShowMenu] = useState(false)
 
+    let menu
+
+    if(showMenu){
+        menu = <div>
+            The menu
+        </div>
+    }
+
     return(
     <nav>
         <span className="text-xl">
@@ -13,6 +21,7 @@ function Navigation () {
                 icon={faBars} 
                 onClick={() => setShowMenu(!showMenu)}
             />
+            {menu}
         </span>
     </nav>
     )
