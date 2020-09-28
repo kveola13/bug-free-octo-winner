@@ -9,7 +9,10 @@ function Navigation () {
     return(
     <nav>
         <span className="text-xl">
-            <FontAwesomeIcon icon={faBars}/>
+            <FontAwesomeIcon 
+                icon={faBars} 
+                onClick={() => setShowMenu(!showMenu)}
+            />
         </span>
     </nav>
     )
