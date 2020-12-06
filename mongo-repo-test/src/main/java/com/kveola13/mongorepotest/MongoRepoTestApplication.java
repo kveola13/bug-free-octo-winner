@@ -1,15 +1,28 @@
 package com.kveola13.mongorepotest;
 
+import com.kveola13.mongorepotest.model.Card;
+import com.kveola13.mongorepotest.repositories.CardRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-@EnableMongoRepositories
 @SpringBootApplication
-public class MongoRepoTestApplication {
+public class MongoRepoTestApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MongoRepoTestApplication.class, args);
+	@Autowired
+	private CardRepository repository;
+
+    public static void main(String[] args) {
+        SpringApplication.run(MongoRepoTestApplication.class, args);
+    }
+
+	@Override
+	public void run(String... args) throws Exception {
+		repository.deleteAll();
+		repository.save(new Card(1, "test card"));
+
+		System.out.println("Cards:");
+		System.out.println(repository.findAll());
 	}
-
 }
