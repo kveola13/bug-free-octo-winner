@@ -1,16 +1,21 @@
 import { Component } from '@angular/core';
 
-function log(target: any, name: any, descriptor: any){
-  console.log(target, name, descriptor)
-  const original = descriptor.value
-  descriptor.value = function(...args: any){
-    console.log("Arguments", args, " were passed in this function")
-    const result = original.apply(this, args)
-    console.log(result)
-    return result
+function log(className: any){
+  console.log(className)
+  return(...args:any) => {
+    console.log("Arguments", args)
+    return new className(...args)
   }
-  return descriptor
 }
+
+class myExampleClass{
+  constructor(arg1:any, arg2:any){
+    console.log("Constructor")
+  }
+}
+
+const myClass = new myExampleClass(5,10)
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -23,7 +28,6 @@ export class AppComponent {
     console.log(this.aSimpleMethod(5,2))
   }
 
-  @log
   aSimpleMethod(a:any, b:any){
     return a*b
   }
