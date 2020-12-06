@@ -3,8 +3,11 @@ import { Component } from '@angular/core';
 function log(target: any, name: any, descriptor: any){
   console.log(target, name, descriptor)
   const original = descriptor.value
-  descriptor.value = function(){
-    console.log("This function was hacked!")
+  descriptor.value = function(...args: any){
+    console.log("Arguments", args, " were passed in this function")
+    const result = original.apply(this, args)
+    console.log(result)
+    return result
   }
   return descriptor
 }
@@ -17,11 +20,11 @@ export class AppComponent {
   title = 'intro';
 
   constructor(){
-    this.aSimpleMethod()
+    console.log(this.aSimpleMethod(5,2))
   }
-  
+
   @log
-  aSimpleMethod(){
-    console.log("Hey there!")
+  aSimpleMethod(a:any, b:any){
+    return a*b
   }
 }
