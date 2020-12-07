@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HelloComponent } from './hello/hello.component'
 
 function log(className: any){
   console.log(className)
@@ -23,7 +24,26 @@ const myClass = new myExampleClass(5,10)
 })
 export class AppComponent {
   title = 'intro';
-
+  disabled = true;
+  text = "app"
+  records = [
+    {
+      name: "Ola",
+      online: true
+    },
+    {
+      name: "ABC",
+      online: false
+    },
+    {
+      name: "XYZ",
+      online: true
+    }
+  ];
+  updateValue(e:any){
+    this.text = e.target.value
+    console.log(e.target.value)
+  }
   constructor(){
     console.log(this.aSimpleMethod(5,2))
   }

@@ -1,1 +1,23 @@
 Hello world
+custom component: <app-hello></app-hello>
+<input type="text" [value]="text" (input)="updateValue($event)"/>
+{{text}}
+
+<table>
+  <tr>
+    <td>Index</td>
+    <td>Name</td>
+    <td>Is online?</td>
+  </tr>
+  <tr *ngFor="
+  let myIndex=index; 
+  let record of records;
+  let evenRecords = even;
+  let oddRecord = odd;
+  "
+  [ngClass]="{odd: oddRecord, even: evenRecords}">
+    <td>{{myIndex + 1 }}</td>
+    <td>{{record.name}}</td>
+    <td>{{record.online}}</td>
+  </tr>
+</table>
