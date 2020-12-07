@@ -21,6 +21,6 @@ export class RecordsService {
         name: "XYZ",
         online: true
       }
-    ];
+    ]
   }
 }

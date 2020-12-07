@@ -26,7 +26,7 @@ export class AppComponent {
   title = 'intro';
   disabled = true;
   text = "app"
-  records = {}
+  records = [{}]
 
   constructor(private myFirstService: RecordsService){
 
