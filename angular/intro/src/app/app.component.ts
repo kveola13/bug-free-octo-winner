@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HelloComponent } from './hello/hello.component'
+import { RecordsService } from './records.service';
 
 function log(className: any){
   console.log(className)
@@ -26,17 +26,19 @@ export class AppComponent {
   title = 'intro';
   disabled = true;
   text = "app"
+  records = {}
+
+  constructor(private myFirstService: RecordsService){
+
+  }
   
   ngOnInit(){
-    this.records = 
+    this.records = this.myFirstService.getData()
   } 
 
   updateValue(e:any){
     this.text = e.target.value
     console.log(e.target.value)
-  }
-  constructor(){
-    console.log(this.aSimpleMethod(5,2))
   }
 
   aSimpleMethod(a:any, b:any){
