@@ -26,20 +26,7 @@ export class AppComponent {
   title = 'intro';
   disabled = true;
   text = "app"
-  records = [
-    {
-      name: "Ola",
-      online: true
-    },
-    {
-      name: "ABC",
-      online: false
-    },
-    {
-      name: "XYZ",
-      online: true
-    }
-  ];
+  
   updateValue(e:any){
     this.text = e.target.value
     console.log(e.target.value)
