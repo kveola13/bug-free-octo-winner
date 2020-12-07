@@ -27,6 +27,10 @@ export class AppComponent {
   disabled = true;
   text = "app"
   
+  ngOnInit(){
+    this.records = 
+  } 
+
   updateValue(e:any){
     this.text = e.target.value
     console.log(e.target.value)
