@@ -1,4 +1,6 @@
-﻿namespace TrackerLibrary
+﻿using System;
+
+namespace TrackerLibrary
 {
     public class MatchupEntryModel
     {
@@ -8,7 +10,7 @@
 
         public MatchupEntryModel(double initialScore)
         {
-
+            Console.WriteLine();
         }
     }
 }
