@@ -15,7 +15,7 @@ export class HeroesComponent implements OnInit {
   heroes = HEROES
   selectedHero: Hero = {
     id: 1,
-    name: "Placeholder"
+    name: "Windstorm"
   }
   constructor() { }
 
