@@ -20,7 +20,7 @@ namespace Commander.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Command>> GetAllCommands()
         {
-            return Ok(_repository.GetAppCommands());
+            return Ok(_repository.GetAllCommands());
         }
         [HttpGet("{id}")]
         public ActionResult<Command> GetCommandById(int id)
