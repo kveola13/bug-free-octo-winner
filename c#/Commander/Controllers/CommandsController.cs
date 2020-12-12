@@ -1,4 +1,5 @@
-﻿using Commander.Data;
+﻿using AutoMapper;
+using Commander.Data;
 using Commander.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,7 +14,7 @@ namespace Commander.Controllers
     public class CommandsController : ControllerBase
     {
         private readonly ICommanderRepo _repository;
-        public CommandsController(ICommanderRepo commanderRepo)
+        public CommandsController(ICommanderRepo commanderRepo, IMapper mapper)
         {
             _repository = commanderRepo;
         }
@@ -25,7 +26,11 @@ namespace Commander.Controllers
         [HttpGet("{id}")]
         public ActionResult<Command> GetCommandById(int id)
         {
-            return Ok(_repository.GetCommandById(id));
+            if(_repository.GetCommandById(id) != null)
+            {
+                return Ok(_repository.GetCommandById(id));
+            }
+            return NotFound();
         }
     }
 }

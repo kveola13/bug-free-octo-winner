@@ -16,12 +16,12 @@ namespace Commander.Data
         }
         public IEnumerable<Command> GetAllCommands()
         {
-            throw new NotImplementedException();
+            return _context.Commands.ToList();
         }
 
         public Command GetCommandById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Commands.FirstOrDefault(predicate => predicate.Id == id);
         }
     }
 }
