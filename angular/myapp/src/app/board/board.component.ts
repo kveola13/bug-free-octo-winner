@@ -21,4 +21,15 @@ export class BoardComponent implements OnInit {
     this.xIsNext = true
   }
 
+  get player(){
+    return this.xIsNext ? "X" : "O"
+  }
+
+  makeMove(index: number){
+    if(!this.squares[index]){
+      this.squares.splice(index, 1, this.player)
+      this.xIsNext = !this.xIsNext
+    }
+  }
+
 }
