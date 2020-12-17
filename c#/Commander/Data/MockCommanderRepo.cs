@@ -1,8 +1,6 @@
 ﻿using Commander.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Commander.Data
 {
@@ -25,7 +23,7 @@ namespace Commander.Data
         }
         public Command GetCommandById(int id)
         {
-            return new Command { Id=0, HowTo="Jump", Line="Just do it", Platform="Real life"};
+            return new Command { Id = 0, HowTo = "Jump", Line = "Just do it", Platform = "Real life" };
         }
 
         public bool SaveChanges()

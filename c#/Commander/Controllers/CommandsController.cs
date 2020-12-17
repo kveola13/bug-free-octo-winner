@@ -3,10 +3,7 @@ using Commander.Data;
 using Commander.Dtos;
 using Commander.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Commander.Controllers
 {
@@ -27,10 +24,10 @@ namespace Commander.Controllers
         {
             return Ok(_mapper.Map<IEnumerable<CommandReadDto>>(_repository.GetAllCommands()));
         }
-        [HttpGet("{id}", Name ="GetCommandById")]
+        [HttpGet("{id}", Name = "GetCommandById")]
         public ActionResult<CommandReadDto> GetCommandById(int id)
         {
-            if(_repository.GetCommandById(id) != null)
+            if (_repository.GetCommandById(id) != null)
             {
                 return Ok(_mapper.Map<CommandReadDto>(_repository.GetCommandById(id)));
             }
@@ -44,7 +41,7 @@ namespace Commander.Controllers
             _repository.SaveChanges();
             var commandReadDto = _mapper.Map<CommandReadDto>(commandModel);
 
-            return CreatedAtRoute(nameof(GetCommandById), new { Id= commandReadDto.Id}, commandReadDto);
+            return CreatedAtRoute(nameof(GetCommandById), new { Id = commandReadDto.Id }, commandReadDto);
         }
     }
 }
