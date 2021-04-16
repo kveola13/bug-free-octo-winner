@@ -51,8 +51,10 @@ namespace Commander.Controllers
             {
                 return NotFound();
             }
-            _mapper.Map<CommandReadDto>(commandModelFromRepo);
-            return null;
+            _mapper.Map(commandUpdateDto, commandModelFromRepo);
+            _repository.UpdateCommand(commandModelFromRepo);
+            _repository.SaveChanges();
+            return NoContent();
         }
     }
 }

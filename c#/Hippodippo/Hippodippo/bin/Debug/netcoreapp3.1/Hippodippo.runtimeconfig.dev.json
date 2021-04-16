@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\olakv\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\olakv\\.nuget\\packages"
-    ]
-  }
-}
